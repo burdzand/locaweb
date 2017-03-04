@@ -2,30 +2,16 @@ package main
 
 import (
 	"fmt"
-	"github.com/andersondborges/locaweb/twitter"
+	"github.com/andersondborges/locaweb/controllers"
+	"log"
+	"net/http"
 )
 
 func main() {
-	fmt.Println("Start Project")
-	/*
-		client := &http.Client{}
-		resp, err := client.Get("http://tweeps.locaweb.com.br/tweeps")
-		fmt.Println(err)
-		fmt.Println(resp)
-
-		req, err := http.NewRequest("GET", "http://tweeps.locaweb.com.br/tweeps", nil)
-		req.Header.Add("Username", "andersondborges@gmail.com")
-		resp, err = client.Do(req)
-
-		defer resp.Body.Close()
-
-		body, err := ioutil.ReadAll(resp.Body)
-
-		fmt.Println(err)
-		fmt.Println(body)
-	*/
-
-	statuses, _ := twitter.GetTweets()
-	fmt.Println(statuses)
-
+	fmt.Println("Startint Project")
+	fmt.Println("Server Running Port:9090")
+	http.HandleFunc("/", controllers.Index)
+	http.HandleFunc("/most_relevants/", controllers.ExportMostRelevants)
+	http.HandleFunc("/most_mentions/", controllers.ExportMostMentions)
+	log.Fatal(http.ListenAndServe(":9090", nil))
 }

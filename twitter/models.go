@@ -77,6 +77,28 @@ type Tweet struct {
 	QuotedStatusID       int64                  `json:"quoted_status_id"`
 	QuotedStatusIDStr    string                 `json:"quoted_status_id_str"`
 	QuotedStatus         *Tweet                 `json:"quoted_status"`
+	Entities             *Entities              `json:"entities"`
+}
+
+// Entities all entities in tweet
+type Entities struct {
+	Urls         []URLEntity     `json:"urls"`
+	UserMentions []MentionEntity `json:"user_mentions"`
+}
+
+// URLEntity urls are add in tweet
+type URLEntity struct {
+	DisplayURL  string `json:"display_url"`
+	ExpandedURL string `json:"expanded_url"`
+	URL         string `json:"url"`
+}
+
+// MentionEntity user are Mention on tweet
+type MentionEntity struct {
+	ID         int64  `json:"id"`
+	IDStr      string `json:"id_str"`
+	Name       string `json:"name"`
+	ScreenName string `json:"screen_name"`
 }
 
 // TweetIdentifier represents the id by which a Tweet can be identified.

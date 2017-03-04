@@ -1,0 +1,30 @@
+{{ template "header.html" . }}
+
+<div class="panel panel-default">
+                        <div class="panel-heading">Most Relevants Tweets  
+                                               <a class="btn btn-primary btn-xs" style="float: right" href="/">Go Back</a> 
+                                                                       <a class="btn btn-primary btn-xs" style="float: right; margin-right: 10px;" target="_blank" href="/most_relevants/?export=json">Export to JSON</a>
+                        
+                        </div>
+
+
+
+      <div class="panel-body">
+          <div class="list-group"> 
+            {{ range .}}
+            <div href="#" class="list-group-item"> 
+               Name: {{.User.Name}}<br>
+               Screen: {{.User.ScreenName}}<br>
+               Text: {{.Text}}<br>
+               Created: {{.CreatedAt}}<br>
+               Followers {{.User.FollowersCount}}<br>
+               Count Retweet  {{.RetweetCount}}<br>
+               Retweet  {{.Retweeted}}<br>
+            </div>
+            {{end}}
+          </div>
+      </div>
+</div>
+
+
+{{ template "footer.html" .}}
