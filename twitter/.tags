@@ -1,0 +1,9 @@
+!_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
+GetTweets	/home/houd/Documents/goworkstation/src/github.com/andersondborges/locaweb/twitter/twitter.go	/^func GetTweets() (*Statuses, error) {$/;"	f	language:Go
+SearchTweetParams	/home/houd/Documents/goworkstation/src/github.com/andersondborges/locaweb/twitter/twitter.go	/^type SearchTweetParams struct {$/;"	t	language:Go
+Statuses	/home/houd/Documents/goworkstation/src/github.com/andersondborges/locaweb/twitter/twitter.go	/^type Statuses struct {$/;"	t	language:Go
+Tweet	/home/houd/Documents/goworkstation/src/github.com/andersondborges/locaweb/twitter/models.go	/^type Tweet struct {$/;"	t	language:Go
+TweetIdentifier	/home/houd/Documents/goworkstation/src/github.com/andersondborges/locaweb/twitter/models.go	/^type TweetIdentifier struct {$/;"	t	language:Go
+twitter	/home/houd/Documents/goworkstation/src/github.com/andersondborges/locaweb/twitter/models.go	/^package twitter$/;"	p	language:Go
+twitter	/home/houd/Documents/goworkstation/src/github.com/andersondborges/locaweb/twitter/twitter.go	/^package twitter$/;"	p	language:Go
+User	/home/houd/Documents/goworkstation/src/github.com/andersondborges/locaweb/twitter/models.go	/^type User struct {$/;"	t	language:Go

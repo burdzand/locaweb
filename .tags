@@ -1,0 +1,4 @@
+!_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
+main	/home/houd/Documents/goworkstation/src/github.com/andersondborges/locaweb/controller.go	/^package main$/;"	p	language:Go
+main	/home/houd/Documents/goworkstation/src/github.com/andersondborges/locaweb/locaweb.go	/^func main() {$/;"	f	language:Go
+main	/home/houd/Documents/goworkstation/src/github.com/andersondborges/locaweb/locaweb.go	/^package main$/;"	p	language:Go
