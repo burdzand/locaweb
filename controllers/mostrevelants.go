@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"encoding/json"
 	"github.com/andersondborges/locaweb/templates"
 	"github.com/andersondborges/locaweb/twitter"
 	"net/http"
@@ -13,5 +14,11 @@ func ExportMostRelevants(w http.ResponseWriter, r *http.Request) {
 	sort.Sort(twitter.SortByFavorite(tweets))
 	sort.Sort(twitter.SortByRetweets(tweets))
 	sort.Sort(twitter.SortByFollows(tweets))
-	templates.RenderTemplate(w, "relevants.html", tweets)
+
+	export := r.URL.Query().Get("export")
+	if export == "json" {
+		json.NewEncoder(w).Encode(tweets)
+	} else {
+		templates.RenderTemplate(w, "relevants.html", tweets)
+	}
 }

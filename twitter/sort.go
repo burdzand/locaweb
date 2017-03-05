@@ -1,7 +1,5 @@
 package twitter
 
-import "fmt"
-
 // SortByFollows  sort tweets by Number of Followers
 type SortByFollows []Tweet
 
@@ -14,7 +12,6 @@ type SortByFavorite []Tweet
 func (s SortByFollows) Len() int      { return len(s) }
 func (s SortByFollows) Swap(i, j int) { s[i], s[j] = s[j], s[i] }
 func (s SortByFollows) Less(i, j int) bool {
-	fmt.Println(s[i].User.FollowersCount < s[j].User.FollowersCount)
 	return s[i].User.FollowersCount > s[j].User.FollowersCount
 }
 

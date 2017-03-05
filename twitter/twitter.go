@@ -59,3 +59,29 @@ func GetTweets() ([]Tweet, error) {
 
 	return statuses.FilterLocaweb(), nil
 }
+
+// GetTweetsOrderUser get tweets order by users
+func GetTweetsOrderUser() []UserTweets {
+	//usertweets := make(UserTweets)
+	tweets, _ := GetTweets()
+	var tusers []UserTweets
+	for _, tweet := range tweets {
+		if index, ok := getUserTweetIndex(tusers, tweet); ok {
+			tusers[index].AddTweet(tweet)
+		} else {
+			tuser := UserTweets{ScreenName: tweet.User.ScreenName, FollowersCount: tweet.User.FriendsCount}
+			tuser.AddTweet(tweet)
+			tusers = append(tusers, tuser)
+		}
+	}
+	return tusers
+}
+
+func getUserTweetIndex(tusers []UserTweets, tweet Tweet) (int, bool) {
+	for index, usertweet := range tusers {
+		if usertweet.ScreenName == tweet.User.ScreenName {
+			return index, true
+		}
+	}
+	return 0, false
+}

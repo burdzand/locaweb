@@ -1,0 +1,45 @@
+{{ template "header.html" . }}
+
+<div class="panel panel-default">
+                        <div class="panel-heading">Mosts Mentions Users  
+                                               <a class="btn btn-primary btn-xs" style="float: right" href="/">Go Back</a> 
+                                                                       <a class="btn btn-primary btn-xs" style="float: right; margin-right: 10px;" target="_blank" href="/most_relevants/?export=json">Show in JSON</a>
+                        
+                        </div>
+    <div class="panel-body">
+
+            {{ range .}}
+
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+                          
+                          <b>Screen Name:</b> {{.ScreenName}} 
+                          <span style='margin-left:30px;'> <b>Followers Count: </b> {{.FollowersCount}}
+                          <span style="float:right"><b>How Many times has mentioned @locaweb:</b> {{ len .Tweets }}</span>
+                      
+                      </div>
+                 <div class="panel-body">
+
+          <div class="list-group"> 
+                    {{ range .Tweets}}
+                            <div href="#" class="list-group-item">
+                                {{if .Retweeted}}
+                                    <span class="badge">Retweeted
+                                        : {{.RetweetCount}} </span>
+                                {{end}}
+                                <!--  Name: {{.User.Name}}<br> -->
+                            <b> Text:</b> {{.Text}}<br>
+                            <b> Created:</b> {{.CreatedAt}}<br>
+                            </div>
+                    {{end}}
+
+                             </div>
+
+            </div>
+            </div>
+            {{end}}
+</div>
+</div>
+
+
+{{ template "footer.html" .}}

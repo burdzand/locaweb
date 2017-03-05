@@ -106,3 +106,15 @@ type TweetIdentifier struct {
 	ID    int64  `json:"id"`
 	IDStr string `json:"id_str"`
 }
+
+// UserTweets represents a user with tweets that have @localweb
+type UserTweets struct {
+	ScreenName     string
+	FollowersCount int
+	Tweets         []Tweet
+}
+
+// AddTweet function add Tweet to a user
+func (tuser *UserTweets) AddTweet(tweet Tweet) {
+	tuser.Tweets = append(tuser.Tweets, tweet)
+}

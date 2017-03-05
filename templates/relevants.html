@@ -3,7 +3,7 @@
 <div class="panel panel-default">
                         <div class="panel-heading">Most Relevants Tweets  
                                                <a class="btn btn-primary btn-xs" style="float: right" href="/">Go Back</a> 
-                                                                       <a class="btn btn-primary btn-xs" style="float: right; margin-right: 10px;" target="_blank" href="/most_relevants/?export=json">Export to JSON</a>
+                                                                       <a class="btn btn-primary btn-xs" style="float: right; margin-right: 10px;" target="_blank" href="/most_relevants/?export=json">Show in JSON</a>
                         
                         </div>
 
@@ -14,15 +14,14 @@
             {{ range .}}
             <div href="#" class="list-group-item">
                 {{if .Retweeted}}
-                    <span class="badge">Retweeted</span>
+                    <span class="badge">Retweeted
+                        : {{.RetweetCount}} </span>
                 {{end}}
-               Name: {{.User.Name}}<br>
-               Screen: {{.User.ScreenName}}<br>
-               Text: {{.Text}}<br>
-               Created: {{.CreatedAt}}<br>
-               Followers {{.User.FollowersCount}}<br>
-               Count Retweet  {{.RetweetCount}}<br>
-               InReplyToUserID  {{.InReplyToUserID}}<br>
+                <!--  Name: {{.User.Name}}<br> -->
+            <b>Screen name:</b> {{.User.ScreenName}}<br>
+            <b> Text:</b> {{.Text}}<br>
+            <b> Created:</b> {{.CreatedAt}}<br>
+            <b>  Followers Count:</b> {{.User.FollowersCount}}<br>
             </div>
             {{end}}
           </div>
