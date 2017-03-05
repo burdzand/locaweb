@@ -21,7 +21,6 @@ func (statuses *Statuses) FilterLocaweb() []Tweet {
 				tweets = append(tweets, tweet)
 			}
 		}
-		fmt.Println(tweet)
 	}
 	return tweets
 }

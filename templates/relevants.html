@@ -12,14 +12,17 @@
       <div class="panel-body">
           <div class="list-group"> 
             {{ range .}}
-            <div href="#" class="list-group-item"> 
+            <div href="#" class="list-group-item">
+                {{if .Retweeted}}
+                    <span class="badge">Retweeted</span>
+                {{end}}
                Name: {{.User.Name}}<br>
                Screen: {{.User.ScreenName}}<br>
                Text: {{.Text}}<br>
                Created: {{.CreatedAt}}<br>
                Followers {{.User.FollowersCount}}<br>
                Count Retweet  {{.RetweetCount}}<br>
-               Retweet  {{.Retweeted}}<br>
+               InReplyToUserID  {{.InReplyToUserID}}<br>
             </div>
             {{end}}
           </div>
