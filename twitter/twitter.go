@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"sort"
 )
 
 // Statuses represents the result of a Tweet search.
@@ -23,20 +24,6 @@ func (statuses *Statuses) FilterLocaweb() []Tweet {
 		}
 	}
 	return tweets
-}
-
-// SearchTweetParams are the parameters for GetTweets
-type SearchTweetParams struct {
-	Query           string `url:"q,omitempty"`
-	Geocode         string `url:"geocode,omitempty"`
-	Lang            string `url:"lang,omitempty"`
-	Locale          string `url:"locale,omitempty"`
-	ResultType      string `url:"result_type,omitempty"`
-	Count           int    `url:"count,omitempty"`
-	SinceID         int64  `url:"since_id,omitempty"`
-	MaxID           int64  `url:"max_id,omitempty"`
-	Until           string `url:"until,omitempty"`
-	IncludeEntities *bool  `url:"include_entities,omitempty"`
 }
 
 // GetTweets returns a collection of Tweets matching a search query.
@@ -69,10 +56,13 @@ func GetTweetsOrderUser() []UserTweets {
 		if index, ok := getUserTweetIndex(tusers, tweet); ok {
 			tusers[index].AddTweet(tweet)
 		} else {
-			tuser := UserTweets{ScreenName: tweet.User.ScreenName, FollowersCount: tweet.User.FriendsCount}
+			tuser := UserTweets{ScreenName: tweet.User.ScreenName, FollowersCount: tweet.User.FriendsCount, ID: tweet.User.ID}
 			tuser.AddTweet(tweet)
 			tusers = append(tusers, tuser)
 		}
+	}
+	for _, tuser := range tusers {
+		sort.Sort(SortByRetweets(tuser.Tweets))
 	}
 	return tusers
 }

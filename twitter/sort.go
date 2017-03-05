@@ -26,3 +26,12 @@ func (s SortByFavorite) Swap(i, j int) { s[i], s[j] = s[j], s[i] }
 func (s SortByFavorite) Less(i, j int) bool {
 	return s[i].FavoriteCount > s[j].FavoriteCount
 }
+
+// SortUserTweetsByFollows  sort tweets by Number of Followers
+type SortUserTweetsByFollows []UserTweets
+
+func (s SortUserTweetsByFollows) Len() int      { return len(s) }
+func (s SortUserTweetsByFollows) Swap(i, j int) { s[i], s[j] = s[j], s[i] }
+func (s SortUserTweetsByFollows) Less(i, j int) bool {
+	return s[i].FollowersCount > s[j].FollowersCount
+}

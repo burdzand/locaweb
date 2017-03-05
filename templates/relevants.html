@@ -18,10 +18,11 @@
                         : {{.RetweetCount}} </span>
                 {{end}}
                 <!--  Name: {{.User.Name}}<br> -->
-            <b>Screen name:</b> {{.User.ScreenName}}<br>
+                <b>Screen name:</b> <a href="https://twitter.com/{{.User.ID}}" target="_blank">{{.User.ScreenName}}</a><br>
             <b> Text:</b> {{.Text}}<br>
             <b> Created:</b> {{.CreatedAt}}<br>
             <b>  Followers Count:</b> {{.User.FollowersCount}}<br>
+            <b> Favorite Count:</b> {{.FavoriteCount}}<br>
             </div>
             {{end}}
           </div>

@@ -5,13 +5,14 @@ import (
 	"github.com/andersondborges/locaweb/templates"
 	"github.com/andersondborges/locaweb/twitter"
 	"net/http"
-	//	"sort"
+	"sort"
 )
 
 // ExportMostMentions export all tweets mentions
 func ExportMostMentions(w http.ResponseWriter, r *http.Request) {
 
 	tusers := twitter.GetTweetsOrderUser()
+	sort.Sort(twitter.SortUserTweetsByFollows(tusers))
 	export := r.URL.Query().Get("export")
 	if export == "json" {
 		json.NewEncoder(w).Encode(tusers)

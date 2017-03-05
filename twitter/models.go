@@ -110,6 +110,7 @@ type TweetIdentifier struct {
 // UserTweets represents a user with tweets that have @localweb
 type UserTweets struct {
 	ScreenName     string
+	ID             int64
 	FollowersCount int
 	Tweets         []Tweet
 }

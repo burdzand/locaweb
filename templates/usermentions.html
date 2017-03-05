@@ -3,7 +3,7 @@
 <div class="panel panel-default">
                         <div class="panel-heading">Mosts Mentions Users  
                                                <a class="btn btn-primary btn-xs" style="float: right" href="/">Go Back</a> 
-                                                                       <a class="btn btn-primary btn-xs" style="float: right; margin-right: 10px;" target="_blank" href="/most_relevants/?export=json">Show in JSON</a>
+ <a class="btn btn-primary btn-xs" style="float: right; margin-right: 10px;" target="_blank" href="/most_mentions/?export=json">Show in JSON</a>
                         
                         </div>
     <div class="panel-body">
@@ -13,7 +13,7 @@
                   <div class="panel panel-default">
                       <div class="panel-heading">
                           
-                          <b>Screen Name:</b> {{.ScreenName}} 
+                          <b>Screen Name:</b><a href="https://twitter.com/{{.ID}}" target="_blank">{{.ScreenName}}</a> 
                           <span style='margin-left:30px;'> <b>Followers Count: </b> {{.FollowersCount}}
                           <span style="float:right"><b>How Many times has mentioned @locaweb:</b> {{ len .Tweets }}</span>
                       
@@ -30,6 +30,7 @@
                                 <!--  Name: {{.User.Name}}<br> -->
                             <b> Text:</b> {{.Text}}<br>
                             <b> Created:</b> {{.CreatedAt}}<br>
+                            <b> Favorite Count:</b> {{.FavoriteCount}}<br>
                             </div>
                     {{end}}
 
